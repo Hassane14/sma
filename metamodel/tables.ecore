@@ -2,23 +2,51 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Tables" nsURI="urn:uuid:27aa178c-696e-4d7d-a9d6-8cb6a8899d8c/metamodel/tables"
     nsPrefix="tables">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Database">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tables" upperBound="-1"
         eType="#//Table" containment="true" eOpposite="#//Table/database"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Table">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="PrimaryKeyInThisTable"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="PrimaryKeyInThisTable" value="self.primary_key = null or self.primary_key.table = self"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
         eType="#//Column" containment="true" eOpposite="#//Column/table"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
         eType="#//Database" eOpposite="#//Database/tables"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="primary_key" eType="#//Column"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Column">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="table" lowerBound="1" eType="#//Table"
         eOpposite="#//Table/columns"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="_foreign_keys" upperBound="-1"
+        eType="#//ForeignKey" containment="true" eOpposite="#//ForeignKey/column"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ForeignKey">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="TargetHasPrimaryKey PrimaryKeyTypeMatches"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="TargetHasPrimaryKey" value="self.target.primary_key &lt;> null"/>
+      <details key="PrimaryKeyTypeMatches" value="self.target.primary_key.type = self.column.type"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//Table"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="column" lowerBound="1"
+        eType="#//Column" eOpposite="#//Column/_foreign_keys"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Type">
     <eLiterals name="Integer"/>

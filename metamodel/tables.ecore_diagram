@@ -65,7 +65,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_jxrJmeA3Eee3OOEjYpjTpg"/>
     </children>
     <element xmi:type="ecore:EClass" href="tables.ecore#//Column"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jxqigeA3Eee3OOEjYpjTpg" x="528" y="36" width="126" height="146"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jxqigeA3Eee3OOEjYpjTpg" x="528" y="36" width="133" height="145"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_w3g3EOA6Eee3OOEjYpjTpg" type="2005" fontName="Cantarell">
     <children xmi:type="notation:DecorationNode" xmi:id="_w3g3EuA6Eee3OOEjYpjTpg" type="5005"/>
@@ -94,7 +94,33 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_w3g3GOA6Eee3OOEjYpjTpg"/>
     </children>
     <element xmi:type="ecore:EEnum" href="tables.ecore#//Type"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_w3g3EeA6Eee3OOEjYpjTpg" x="712" y="39" width="153" height="142"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_w3g3EeA6Eee3OOEjYpjTpg" x="708" y="36" width="153" height="142"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_rDzRUOEREeeGLdHi12J-sg" type="2003" fontName="Cantarell">
+    <children xmi:type="notation:DecorationNode" xmi:id="_rDz4YOEREeeGLdHi12J-sg" type="5003"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_rDz4YeEREeeGLdHi12J-sg" type="7009">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_rDz4YuEREeeGLdHi12J-sg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_rDz4Y-EREeeGLdHi12J-sg"/>
+    </children>
+    <element xmi:type="ecore:EAnnotation" href="tables.ecore#//%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FEcore%"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rDzRUeEREeeGLdHi12J-sg" x="48" y="288"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_kcLOUOEXEeeGLdHi12J-sg" type="2001" fontName="Cantarell">
+    <children xmi:type="notation:DecorationNode" xmi:id="_kcL1YOEXEeeGLdHi12J-sg" type="5001"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_kcL1YeEXEeeGLdHi12J-sg" type="7001">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_kcL1YuEXEeeGLdHi12J-sg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_kcL1Y-EXEeeGLdHi12J-sg"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_kcL1ZOEXEeeGLdHi12J-sg" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_kcL1ZeEXEeeGLdHi12J-sg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_kcL1ZuEXEeeGLdHi12J-sg"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_kcL1Z-EXEeeGLdHi12J-sg" type="7003">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_kcL1aOEXEeeGLdHi12J-sg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_kcL1aeEXEeeGLdHi12J-sg"/>
+    </children>
+    <element xmi:type="ecore:EClass" href="tables.ecore#//ForeignKey"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kcLOUeEXEeeGLdHi12J-sg" x="529" y="228" width="132" height="121"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_k-uA8eA2Eee3OOEjYpjTpg"/>
   <element xmi:type="ecore:EPackage" href="tables.ecore#/"/>
@@ -121,5 +147,31 @@
     <element xmi:type="ecore:EReference" href="tables.ecore#//Table/columns"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_yjVKkuA4Eee3OOEjYpjTpg" points="[14, -1, -174, 1]$[125, -1, -63, 1]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yjY08OA4Eee3OOEjYpjTpg" id="(0.900709219858156,0.5172413793103449)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_INCt0OEREeeGLdHi12J-sg" type="4002" source="_ihvLsOA3Eee3OOEjYpjTpg" target="_jxqigOA3Eee3OOEjYpjTpg">
+    <children xmi:type="notation:DecorationNode" xmi:id="_INEjAOEREeeGLdHi12J-sg" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_INEjAeEREeeGLdHi12J-sg" x="16" y="-6"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_INEjAuEREeeGLdHi12J-sg" type="6003">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_INEjA-EREeeGLdHi12J-sg" x="3" y="18"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_INCt0eEREeeGLdHi12J-sg" fontName="Cantarell"/>
+    <element xmi:type="ecore:EReference" href="tables.ecore#//Table/primary_key"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_INCt0uEREeeGLdHi12J-sg" points="[18, -1, -137, 0]$[136, 23, -19, 24]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_INbvYOEREeeGLdHi12J-sg" id="(0.8723404255319149,0.8482758620689655)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_INbvYeEREeeGLdHi12J-sg" id="(0.20634920634920634,0.8356164383561644)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_A6iFUOEYEeeGLdHi12J-sg" type="4002" source="_kcLOUOEXEeeGLdHi12J-sg" target="_ihvLsOA3Eee3OOEjYpjTpg" routing="Rectilinear">
+    <children xmi:type="notation:DecorationNode" xmi:id="_A6isYOEYEeeGLdHi12J-sg" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_A6isYeEYEeeGLdHi12J-sg" x="60" y="27"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_A6isYuEYEeeGLdHi12J-sg" type="6003">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_A6isY-EYEeeGLdHi12J-sg" x="-11" y="18"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_A6iFUeEYEeeGLdHi12J-sg" fontName="Cantarell"/>
+    <element xmi:type="ecore:EReference" href="tables.ecore#//ForeignKey/target"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_A6iFUuEYEeeGLdHi12J-sg" points="[-15, -7, 199, 92]$[-225, -70, -11, 29]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_A6lvsOEYEeeGLdHi12J-sg" id="(0.08333333333333333,0.23711340206185566)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_A6mWwOEYEeeGLdHi12J-sg" id="(0.3829787234042553,0.8)"/>
   </edges>
 </notation:Diagram>

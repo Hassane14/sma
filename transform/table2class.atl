@@ -1,0 +1,52 @@
+-- @path ClassMM=/sma.hm/metamodel/classes.ecore
+-- @path TableMM=/sma.hm/metamodel/tables.ecore
+
+module table2class;
+create OUT : ClassMM from IN : TableMM;
+
+
+helper context TableMM!Table def : getForeignKeys() : Sequence(TableMM!ForeignKey) =
+	self.columns->collect(c | c.foreign_key)->reject(fk | fk->oclIsUndefined());
+
+
+rule db2clsdiag {
+	from
+		db : TableMM!Database
+	to 
+		diag : ClassMM!ClassDiagram (
+			name <- db.name,
+			classes <- db.tables
+		)
+}
+
+rule table2class {
+	from
+		tbl : TableMM!Table
+	to
+		cls : ClassMM!Class (
+			name <- tbl.name,
+			attributes <- tbl.columns,
+			references <- tbl->getForeignKeys()
+		)
+}
+
+rule col2attr {
+	from
+		col : TableMM!Column (col.foreign_key->oclIsUndefined())
+	to
+		attr : ClassMM!Attribute (
+			name <- col.name,
+			type <- col.type
+		)
+}
+
+rule fkey2ref {
+	from
+		fk : TableMM!ForeignKey
+	to
+		ref : ClassMM!Reference (
+			name <- fk.name,
+			cls <- fk.column.table,
+			target <- fk.target
+		)
+}

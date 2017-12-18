@@ -1,3 +1,10 @@
+# generated code
+gen/
+
+
+#
+# ------  start of github preconfigured rules  ------
+
 # Compiled class file
 *.class
 

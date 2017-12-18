@@ -2,15 +2,36 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Classes" nsURI="urn:uuid:27aa178c-696e-4d7d-a9d6-8cb6a8899d8c/metamodel/classes"
     nsPrefix="classes">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="ClassDiagram">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="ClassNamesUnique"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="ClassNamesUnique" value="self.classes->isUnique(name)"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="classes" upperBound="-1"
         eType="#//Class" containment="true" eOpposite="#//Class/diagram"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Class">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="AttributeNamesUnique ReferenceNamesUnique AttributePropertyNamesUnique"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="AttributeNamesUnique" value="self.attributes->isUnique(name)"/>
+      <details key="ReferenceNamesUnique" value="self.references->isUnique(name)"/>
+      <details key="AttributePropertyNamesUnique" value="self.attributes->collect(name)->intersection(self.references->collect(name))->isEmpty()"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
         eType="#//Attribute" containment="true" eOpposite="#//Attribute/cls"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
+        eType="#//Reference" containment="true" eOpposite="#//Reference/cls"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="diagram" lowerBound="1"
         eType="#//ClassDiagram" eOpposite="#//ClassDiagram/classes"/>
   </eClassifiers>
@@ -19,6 +40,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cls" lowerBound="1" eType="#//Class"
         eOpposite="#//Class/attributes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Reference">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cls" lowerBound="1" eType="#//Class"
+        eOpposite="#//Class/references"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//Class"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Type">
     <eLiterals name="Integer"/>

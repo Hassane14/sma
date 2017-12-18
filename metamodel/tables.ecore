@@ -31,8 +31,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="table" lowerBound="1" eType="#//Table"
         eOpposite="#//Table/columns"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="_foreign_keys" upperBound="-1"
-        eType="#//ForeignKey" containment="true" eOpposite="#//ForeignKey/column"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="foreign_key" eType="#//ForeignKey"
+        containment="true" eOpposite="#//ForeignKey/column"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ForeignKey">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -46,7 +46,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="#//Table"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="column" lowerBound="1"
-        eType="#//Column" eOpposite="#//Column/_foreign_keys"/>
+        eType="#//Column" eOpposite="#//Column/foreign_key"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Type">
     <eLiterals name="Integer"/>

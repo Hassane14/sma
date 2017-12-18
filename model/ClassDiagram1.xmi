@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classes:ClassDiagram
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:classes="urn:uuid:27aa178c-696e-4d7d-a9d6-8cb6a8899d8c/metamodel/classes"
+    xsi:schemaLocation="urn:uuid:27aa178c-696e-4d7d-a9d6-8cb6a8899d8c/metamodel/classes /sma.hm/metamodel/classes.ecore"
+    name="root">
+  <classes name="Usuario">
+    <attributes
+        name="nombre"
+        type="String"/>
+    <attributes
+        name="id"/>
+  </classes>
+  <classes name="Mensaje">
+    <attributes
+        name="id"/>
+    <attributes
+        name="texto"
+        type="String"/>
+    <references
+        name="autor"
+        target="//@classes.0"/>
+  </classes>
+</classes:ClassDiagram>

@@ -14,10 +14,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Table">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="PrimaryKeyInThisTable"/>
+      <details key="constraints" value="PrimaryKeyInThisTable AttributeNamesUnique"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="PrimaryKeyInThisTable" value="self.primary_key = null or self.primary_key.table = self"/>
+      <details key="AttributeNamesUnique" value="&#xA;&#x9;&#x9;&#x9;self.columns->isUnique(name)"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"

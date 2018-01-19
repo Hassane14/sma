@@ -26,7 +26,8 @@ rule table2class {
 		cls : ClassMM!Class (
 			name <- tbl.name,
 			attributes <- tbl.columns,
-			references <- tbl->getForeignKeys()
+			references <- tbl->getForeignKeys(),
+			_primary_key <- tbl.primary_key
 		)
 }
 

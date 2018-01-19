@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tables:Database xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tables="urn:uuid:27aa178c-696e-4d7d-a9d6-8cb6a8899d8c/metamodel/tables" xsi:schemaLocation="urn:uuid:27aa178c-696e-4d7d-a9d6-8cb6a8899d8c/metamodel/tables /sma.hm/metamodel/tables.ecore" name="db1">
+<tables:Database xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:tables="urn:uuid:27aa178c-696e-4d7d-a9d6-8cb6a8899d8c/metamodel/tables" name="db1">
   <tables name="usuario" primary_key="//@tables.0/@columns.0">
     <columns name="id"/>
     <columns name="nombre" type="String"/>
   </tables>
   <tables name="mensaje" primary_key="//@tables.1/@columns.0">
     <columns name="id"/>
+    <columns name="texto" type="String"/>
     <columns name="autor_id">
       <foreign_key name="autor" target="//@tables.0"/>
     </columns>
-    <columns name="texto" type="String"/>
   </tables>
 </tables:Database>

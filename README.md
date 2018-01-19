@@ -1,4 +1,4 @@
-Class Project *Desarollo de Software Basado en Modelos y Aspectos*
+Class Project *Desarollo de Software Basado en Modelos y Aspectos*.
 Universida de Sevilla, Curso 2017/18
 
 Design Decisions
@@ -19,3 +19,7 @@ Metamodel
     attribute named `ref_pk` if they have a reference named `ref` pointing to a
     class whose primary key is `pk`.
   - A class must define a primary key if there is a reference pointing to it.
+
+
+* Attributes that are unneccessary within one "world" have names starting with
+  an underscore.

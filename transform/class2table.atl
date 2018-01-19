@@ -1,0 +1,74 @@
+-- @path TableMM=/sma.hm/metamodel/tables.ecore
+-- @path ClassMM=/sma.hm/metamodel/classes.ecore
+
+module class2table;
+create OUT : TableMM from IN : ClassMM;
+
+rule clsdiag2db {
+	from
+		diag : ClassMM!ClassDiagram
+	to 
+		db : TableMM!Database (
+			name <- diag.name,
+			tables <- diag.classes
+		)
+}
+
+rule class2table {
+	from
+		cls : ClassMM!Class
+	to 
+		tbl : TableMM!Table (
+			name <- cls.name,
+			columns <- cls.attributes,
+			primary_key <- cls._primary_key
+		)
+--	do {
+--		if (cls._primary_key->oclIsUndefined()) {
+--			primary_key <- cls._primary_key
+--		}
+--	}
+}
+
+rule attr2col {
+	from
+		attr : ClassMM!Attribute
+	to 
+		col : TableMM!Column (
+			name <- attr.name,
+			type <- attr.type--,
+--			foreign_key <- 
+		)
+}
+
+rule ref2fkandcol {
+	from
+		ref : ClassMM!Reference
+	to
+		fk : TableMM!ForeignKey (
+			column <- col,
+			name <- ref.name,
+			target <- ref.target
+		),
+		col : TableMM!Column (
+			name <- ref.name->concat('_')->concat(ref.target._primary_key.name),
+			table <- ref.cls,
+			foreign_key <- fk,
+			type <- ref.target._primary_key.type
+			
+		)
+	
+}
+
+--rule addForeignKeyCol( table: TableMM!Table, name: String, type: Integer, fk: TableMM!ForeignKey ) {
+--	to 
+--		col : TableMM!ForeignKey (
+--			table <- table,
+--			name <- name,
+--			type <- type,
+--			foreign_key <- fk
+--		)
+--	do {
+--		
+--	}
+--}

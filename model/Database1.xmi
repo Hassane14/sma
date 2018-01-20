@@ -2,11 +2,11 @@
 <tables:Database xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:tables="urn:uuid:27aa178c-696e-4d7d-a9d6-8cb6a8899d8c/metamodel/tables" name="db1">
   <tables name="usuario" primary_key="//@tables.0/@columns.0">
     <columns name="id"/>
-    <columns name="nombre" type="String"/>
+    <columns name="nombre" type="string"/>
   </tables>
   <tables name="mensaje" primary_key="//@tables.1/@columns.0">
     <columns name="id"/>
-    <columns name="texto" type="String"/>
+    <columns name="texto" type="string"/>
     <columns name="autor_id">
       <foreign_key name="autor" target="//@tables.0"/>
     </columns>

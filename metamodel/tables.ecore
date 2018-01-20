@@ -50,9 +50,9 @@
         eType="#//Column" eOpposite="#//Column/foreign_key"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Type">
-    <eLiterals name="Integer"/>
-    <eLiterals name="Float" value="1"/>
-    <eLiterals name="String" value="2"/>
-    <eLiterals name="Date" value="3"/>
+    <eLiterals name="integer"/>
+    <eLiterals name="float" value="1"/>
+    <eLiterals name="string" value="2"/>
+    <eLiterals name="date" value="3"/>
   </eClassifiers>
 </ecore:EPackage>

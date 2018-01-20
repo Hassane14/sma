@@ -21,14 +21,13 @@ rule class2table {
 		tbl : TableMM!Table (
 			name <- cls.name,
 			columns <- cls.attributes,
-			primary_key <- cls._primary_key
+			primary_key <- if (cls._primary_key->oclIsUndefined()) then
+				thisModule.create_primary_key_column(tbl)
+				else cls._primary_key endif
 		)
---	do {
---		if (cls._primary_key->oclIsUndefined()) {
---			primary_key <- cls._primary_key
---		}
---	}
 }
+
+
 
 rule attr2col {
 	from
@@ -51,14 +50,31 @@ rule ref2fkandcol {
 			target <- ref.target
 		),
 		col : TableMM!Column (
-			name <- ref.name->concat('_')->concat(ref.target._primary_key.name),
+			name <- ref.name->concat('_')
+					        ->concat(if ref.target._primary_key->oclIsUndefined()
+					        	     then 'pk' else ref.target._primary_key.name endif),
 			table <- ref.cls,
 			foreign_key <- fk,
-			type <- ref.target._primary_key.type
+			type <- if ref.target._primary_key->oclIsUndefined()
+					        	     then #integer else ref.target._primary_key.type endif
 			
 		)
 	
 }
+
+rule create_primary_key_column(table : TableMM!Table) {
+	to
+		col : TableMM!Column (
+			name <- 'pk',
+			type <- #integer
+		)
+	do {
+		table.columns <- table.columns->prepend(col);
+		col; --return
+	}
+}
+
+
 
 --rule addForeignKeyCol( table: TableMM!Table, name: String, type: Integer, fk: TableMM!ForeignKey ) {
 --	to 

@@ -10,14 +10,25 @@
         name="id"/>
     <attributes
         name="nombre"
-        type="String"/>
+        type="string"/>
+  </classes>
+  <classes name="Foro">
+    <attributes
+        name="nombre"
+        type="string"/>
+  </classes>
+  <classes name="Tema">
+    <attributes
+        name="nombre"
+        type="string"/>
+    <references
+        name="foro"
+        target="//@classes.2"/>
   </classes>
   <classes name="Mensaje">
     <attributes
-        name="id"/>
-    <attributes
         name="texto"
-        type="String"/>
+        type="string"/>
     <references
         name="autor"
         target="//@classes.0"/>

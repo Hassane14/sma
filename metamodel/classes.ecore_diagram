@@ -71,19 +71,19 @@
     <children xmi:type="notation:DecorationNode" xmi:id="_xkhq4OA2Eee3OOEjYpjTpg" type="5005"/>
     <children xmi:type="notation:BasicCompartment" xmi:id="_xkhq4eA2Eee3OOEjYpjTpg" type="7011">
       <children xmi:type="notation:Node" xmi:id="_XacuMOA3Eee3OOEjYpjTpg" type="3009">
-        <element xmi:type="ecore:EEnumLiteral" href="classes.ecore#//Type/Integer"/>
+        <element xmi:type="ecore:EEnumLiteral" href="classes.ecore#//Type/integer"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_XacuMeA3Eee3OOEjYpjTpg"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_YC7DcOA3Eee3OOEjYpjTpg" type="3009">
-        <element xmi:type="ecore:EEnumLiteral" href="classes.ecore#//Type/Float"/>
+        <element xmi:type="ecore:EEnumLiteral" href="classes.ecore#//Type/float"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_YC7DceA3Eee3OOEjYpjTpg"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_Y4mHMOA3Eee3OOEjYpjTpg" type="3009">
-        <element xmi:type="ecore:EEnumLiteral" href="classes.ecore#//Type/String"/>
+        <element xmi:type="ecore:EEnumLiteral" href="classes.ecore#//Type/string"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_Y4mHMeA3Eee3OOEjYpjTpg"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_ahfXoOA3Eee3OOEjYpjTpg" type="3009">
-        <element xmi:type="ecore:EEnumLiteral" href="classes.ecore#//Type/Date"/>
+        <element xmi:type="ecore:EEnumLiteral" href="classes.ecore#//Type/date"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_ahfXoeA3Eee3OOEjYpjTpg"/>
       </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_xkhq4uA2Eee3OOEjYpjTpg"/>

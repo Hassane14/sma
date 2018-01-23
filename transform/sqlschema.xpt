@@ -1,0 +1,23 @@
+«IMPORT tables»
+«EXTENSION transform::helpers»
+
+«DEFINE main FOR Tables::Database»
+«FILE getFilename(this) -»
+«EXPAND tTable FOREACH tables»
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE tTable FOR Tables::Table-»
+CREATE TABLE `«name»` (
+«EXPAND tColumn FOREACH columns SEPARATOR ",\n"»
+);
+
+«ENDDEFINE»
+
+«DEFINE tColumn FOR Tables::Column-»
+  «name» SOME TYPE«e()-»
+«IF table.primary_key == this» PRIMARY KEY«ENDIF-»
+«IF this.foreign_key != null »
+    REFERENCES «foreign_key.target.name»(«foreign_key.target.primary_key.name»)«e()-»
+«ENDIF-»
+«ENDDEFINE»

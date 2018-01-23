@@ -1,0 +1,7 @@
+import Tables;
+
+String getFilename(Database s):
+	s.name + '.sql';
+
+String e(): /* use as «e()-» to suppress newlines */
+	'';

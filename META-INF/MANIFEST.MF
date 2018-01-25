@@ -1,9 +1,20 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: sma.hm
-Bundle-SymbolicName: sma.hm; singleton:=true
+Bundle-Name: %pluginName
+Bundle-SymbolicName: sma.hm;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Require-Bundle: org.eclipse.emf.ecore,
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: classes,
+ classes.impl,
+ classes.util,
+ sma.hm.classes,
+ sma.hm.classes.impl,
+ sma.hm.classes.util,
+ sma.hm.demo
+Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.xtend.profiler;resolution:=optional,
  org.apache.commons.logging,
  org.apache.log4j;resolution:=optional,
@@ -23,3 +34,4 @@ Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.xtend.middleend.xtend;bundle-version="1.0.0";resolution:=optional,
  org.eclipse.emf.mwe2.launch;resolution:=optional,
  org.antlr.runtime_3.1.b1;bundle-version="3.1.0"
+Bundle-ActivationPolicy: lazy

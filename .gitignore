@@ -1,5 +1,14 @@
-# generated code
+# generated stuff (results of transformations)
 gen/
+
+# eugenia thinks it is a good idea to clutter my working dir with its shit
+metamodel/classes.gmf*
+metamodel/classes.genmodel
+metamodel/classes.trace
+
+# generated java bloat
+src/sma/hm/classes
+bin/
 
 
 #

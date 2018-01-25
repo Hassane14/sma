@@ -7,6 +7,9 @@
     <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
     <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
   </eAnnotations>
+  <eAnnotations source="emf.gen">
+    <details key="basePackage" value="sma.hm"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="ClassDiagram">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="ClassNamesUnique"/>
@@ -14,6 +17,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="ClassNamesUnique" value="self.classes->isUnique(name)"/>
     </eAnnotations>
+    <eAnnotations source="gmf.diagram"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="classes" upperBound="-1"
         eType="#//Class" containment="true" eOpposite="#//Class/diagram"/>
@@ -26,9 +30,21 @@
       <details key="AttributeReferenceNamesUnique" value="&#xA;&#x9;&#x9;&#x9;self.references->collect(name)->union(self.attributes->collect(name))->isUnique(t|t)"/>
       <details key="PrimaryKeyInThisClass" value="self._primary_key = null or self._primary_key.cls = self"/>
     </eAnnotations>
+    <eAnnotations source="gmf.node">
+      <details key="tool.name" value="Class"/>
+      <details key="label" value="name"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="rectangle"/>
+      <details key="size" value="200,150"/>
+      <details key="border.color" value="0,0,0"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
-        eType="#//Attribute" containment="true" eOpposite="#//Attribute/cls"/>
+        eType="#//Attribute" containment="true" eOpposite="#//Attribute/cls">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
         eType="#//Reference" containment="true" eOpposite="#//Reference/cls"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="diagram" lowerBound="1"
@@ -36,12 +52,29 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="_primary_key" eType="#//Attribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute">
+    <eAnnotations source="gmf.node">
+      <details key="tool.name" value="Attribute"/>
+      <details key="label" value="name,type"/>
+      <details key="label.pattern" value="{0}:{1}"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="rectangle"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="margin" value="1"/>
+      <details key="size" value="180,20"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cls" lowerBound="1" eType="#//Class"
         eOpposite="#//Class/attributes"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Reference">
+    <eAnnotations source="gmf.link">
+      <details key="tool.name" value="Reference"/>
+      <details key="label" value="name"/>
+      <details key="source" value="cls"/>
+      <details key="target" value="target"/>
+      <details key="target.decoration" value="arrow"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cls" lowerBound="1" eType="#//Class"
         eOpposite="#//Class/references"/>

@@ -1,0 +1,52 @@
+@Ecore(invocationDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", settingDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", validationDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot")
+@namespace(uri="urn:uuid:27aa178c-696e-4d7d-a9d6-8cb6a8899d8c/metamodel/classes", prefix="classes")
+@emf.gen(basePackage="sma.hm")
+package classes;
+
+@Ecore(constraints="ClassNamesUnique")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(ClassNamesUnique="self.classes->isUnique(name)")
+@gmf.diagram
+class ClassDiagram {
+  attr String name;
+  val Class[*]#diagram classes;
+}
+
+@Ecore(constraints="AttributeReferenceNamesUnique PrimaryKeyInThisClass")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(AttributeReferenceNamesUnique="
+			self.references->collect(name)->union(self.attributes->collect(name))->isUnique(t|t)", PrimaryKeyInThisClass="self._primary_key = null or self._primary_key.cls = self")
+@gmf.node(tool.name="Class", label="name", label.icon="false",
+          figure="rectangle", size="200,150", border.color="0,0,0")
+class Class {
+  attr String name;
+  @gmf.compartment(layout="list")
+  val Attribute[*]#cls attributes;
+  val Reference[*]#cls references;
+  ref ClassDiagram[1]#classes diagram;
+  ref Attribute _primary_key;
+}
+
+@gmf.node(tool.name="Attribute",
+          label="name,type", label.pattern="{0}:{1}", label.icon="false",
+          figure="rectangle", border.color="0,0,0", margin="1", size="180,20")
+class Attribute {
+  attr String name;
+  attr Type type;
+  ref Class[1]#attributes cls;
+}
+
+@gmf.link(tool.name="Reference", label="name",
+          source="cls", target="target",
+          target.decoration="arrow")
+class Reference {
+  attr String name;
+  ref Class[1]#references cls;
+  ref Class[1] target;
+}
+
+enum Type {
+  integer = 0;
+  float = 1;
+  string = 2;
+  date = 3;
+}
+

@@ -3,6 +3,8 @@
 
 «DEFINE main FOR Tables::Database»
 «FILE getFilename(this) -»
+-- database `«name»`
+
 «EXPAND tTable FOREACH tables»
 «ENDFILE»
 «ENDDEFINE»

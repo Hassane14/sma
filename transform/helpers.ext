@@ -1,4 +1,4 @@
-import Tables;
+import tables;
 
 String getFilename(Database s):
 	s.name + '.sql';

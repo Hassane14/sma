@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Tables" nsURI="urn:uuid:27aa178c-696e-4d7d-a9d6-8cb6a8899d8c/metamodel/tables"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="tables" nsURI="urn:uuid:27aa178c-696e-4d7d-a9d6-8cb6a8899d8c/metamodel/tables"
     nsPrefix="tables">
   <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
     <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>

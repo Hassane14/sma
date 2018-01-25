@@ -1,7 +1,7 @@
 «IMPORT tables»
 «EXTENSION transform::helpers»
 
-«DEFINE main FOR Tables::Database»
+«DEFINE main FOR tables::Database»
 «FILE getFilename(this) -»
 -- database `«name»`
 
@@ -9,14 +9,14 @@
 «ENDFILE»
 «ENDDEFINE»
 
-«DEFINE tTable FOR Tables::Table-»
+«DEFINE tTable FOR tables::Table-»
 CREATE TABLE `«name»` (
 «EXPAND tColumn FOREACH columns SEPARATOR ",\n"»
 );
 
 «ENDDEFINE»
 
-«DEFINE tColumn FOR Tables::Column-»
+«DEFINE tColumn FOR tables::Column-»
   «name» SOME TYPE«e()-»
 «IF table.primary_key == this» PRIMARY KEY«ENDIF-»
 «IF this.foreign_key != null »

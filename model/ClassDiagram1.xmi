@@ -23,7 +23,7 @@
         type="string"/>
     <references
         name="foro"
-        target="//@classes.2"/>
+        target="//@classes.1"/>
   </classes>
   <classes name="Mensaje">
     <attributes
@@ -32,5 +32,8 @@
     <references
         name="autor"
         target="//@classes.0"/>
+    <references
+        name="tema"
+        target="//@classes.2"/>
   </classes>
 </classes:ClassDiagram>

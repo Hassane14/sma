@@ -9,4 +9,4 @@ rm -r src/sma/hm/classes
 rm -r bin
 rm gen/*
 rm metamodel/classes.gmf* metamodel/classes.genmodel metamodel/classes.trace
-rm -r ../sma.hm.{diagram,edit,editor,tests}
+rm -r ../sma.hm.diagram ../sma.hm.edit ../sma.hm.editor ../sma.hm.tests

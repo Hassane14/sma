@@ -82,9 +82,13 @@
         <element xmi:type="ecore:EEnumLiteral" href="classes.ecore#//Type/string"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_Y4mHMeA3Eee3OOEjYpjTpg"/>
       </children>
-      <children xmi:type="notation:Node" xmi:id="_ahfXoOA3Eee3OOEjYpjTpg" type="3009">
-        <element xmi:type="ecore:EEnumLiteral" href="classes.ecore#//Type/date"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_ahfXoeA3Eee3OOEjYpjTpg"/>
+      <children xmi:type="notation:Node" xmi:id="_yxWr4AOMEei5hP1tNASSvA" type="3009">
+        <element xmi:type="ecore:EEnumLiteral" href="classes.ecore#//Type/datetime"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_yxWr4QOMEei5hP1tNASSvA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jGHsoAONEei5hP1tNASSvA" type="3009">
+        <element xmi:type="ecore:EEnumLiteral" href="classes.ecore#//Type/bool"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jGHsoQONEei5hP1tNASSvA"/>
       </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_xkhq4uA2Eee3OOEjYpjTpg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_xkhq4-A2Eee3OOEjYpjTpg"/>
@@ -125,6 +129,15 @@
     </children>
     <element xmi:type="ecore:EAnnotation" href="classes.ecore#//%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FEcore%"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QEK_8eNzEeeKLpLXaXDmsg" x="36" y="336"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_yxzX0AOMEei5hP1tNASSvA" type="2003" fontName="Noto Sans">
+    <children xmi:type="notation:DecorationNode" xmi:id="_yxz-4AOMEei5hP1tNASSvA" type="5003"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_yxz-4QOMEei5hP1tNASSvA" type="7009">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_yxz-4gOMEei5hP1tNASSvA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_yxz-4wOMEei5hP1tNASSvA"/>
+    </children>
+    <element xmi:type="ecore:EAnnotation" href="classes.ecore#//%emf.gen%"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yxzX0QOMEei5hP1tNASSvA" x="36" y="288"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_bSEVcOA2Eee3OOEjYpjTpg"/>
   <element xmi:type="ecore:EPackage" href="classes.ecore#/"/>

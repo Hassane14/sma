@@ -83,8 +83,12 @@
         <layoutConstraint xmi:type="notation:Location" xmi:id="_C9FVUeA7Eee3OOEjYpjTpg"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_DXTzMOA7Eee3OOEjYpjTpg" type="3009">
-        <element xmi:type="ecore:EEnumLiteral" href="tables.ecore#//Type/date"/>
+        <element xmi:type="ecore:EEnumLiteral" href="tables.ecore#//Type/datetime"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_DXTzMeA7Eee3OOEjYpjTpg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_8X3agAOJEei5hP1tNASSvA" type="3009">
+        <element xmi:type="ecore:EEnumLiteral" href="tables.ecore#//Type/bool"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8X3agQOJEei5hP1tNASSvA"/>
       </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_w3g3FOA6Eee3OOEjYpjTpg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_w3g3FeA6Eee3OOEjYpjTpg"/>
@@ -121,6 +125,19 @@
     </children>
     <element xmi:type="ecore:EClass" href="tables.ecore#//ForeignKey"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kcLOUeEXEeeGLdHi12J-sg" x="529" y="228" width="132" height="121"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_WndMgAONEei5hP1tNASSvA" type="2003" fontName="Noto Sans">
+    <children xmi:type="notation:DecorationNode" xmi:id="_WndzkAONEei5hP1tNASSvA" type="5003"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_WndzkQONEei5hP1tNASSvA" type="7009">
+      <children xmi:type="notation:Node" xmi:id="_ajOegAONEei5hP1tNASSvA" type="3008">
+        <element xmi:type="ecore:EStringToStringMapEntry" href="tables.ecore#//%emf.gen%/@details.0"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ajOegQONEei5hP1tNASSvA"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_WneaoAONEei5hP1tNASSvA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_WneaoQONEei5hP1tNASSvA"/>
+    </children>
+    <element xmi:type="ecore:EAnnotation" href="tables.ecore#//%emf.gen%"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WndMgQONEei5hP1tNASSvA" x="48" y="240" width="157" height="37"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_k-uA8eA2Eee3OOEjYpjTpg"/>
   <element xmi:type="ecore:EPackage" href="tables.ecore#/"/>

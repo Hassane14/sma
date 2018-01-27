@@ -85,6 +85,7 @@
     <eLiterals name="integer"/>
     <eLiterals name="float" value="1"/>
     <eLiterals name="string" value="2"/>
-    <eLiterals name="date" value="3"/>
+    <eLiterals name="datetime" value="3"/>
+    <eLiterals name="bool" value="4"/>
   </eClassifiers>
 </ecore:EPackage>

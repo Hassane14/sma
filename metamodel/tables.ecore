@@ -7,6 +7,9 @@
     <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
     <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
   </eAnnotations>
+  <eAnnotations source="emf.gen">
+    <details key="basePackage" value="sma.hm"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Database">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tables" upperBound="-1"
@@ -53,6 +56,7 @@
     <eLiterals name="integer"/>
     <eLiterals name="float" value="1"/>
     <eLiterals name="string" value="2"/>
-    <eLiterals name="date" value="3"/>
+    <eLiterals name="datetime" value="3"/>
+    <eLiterals name="bool" value="4"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -1,7 +1,32 @@
 import tables;
 
-String getFilename(Database s):
-	s.name + '.sql';
+String getFilename(Database s, String ext):
+	s.name + '.' + ext;
 
-String e(): /* use as «e()-» to suppress newlines */
+String getSQLType(Column c):
+	switch(c.type) {
+		case Type::integer: 'INTEGER'
+		case Type::float: 'FLOAT'
+		case Type::string: 'VARCHAR'
+		case Type::datetime: 'TIMESTAMP'
+		case Type::bool: 'BOOLEAN'
+		// if this happens we forgot to define a type. abort instead of defining some default
+		default: throwError('invalid type')
+		/* doesn't exist despite mentioned in docs, but anyway it throws an error and halts execution */
+	};
+
+String getPythonClassName(Table t):
+    t.name.toFirstUpper();
+
+String getSQLAlchemyType(Column c):
+	switch(c.type) {
+		case Type::integer: 'Integer'
+		case Type::float: 'Float'
+		case Type::string: 'String'
+		case Type::datetime: 'DateTime'
+		case Type::bool: 'Boolean'
+		default: throwError('invalid type')
+	};
+
+String e(): /* use as «e()-» to suppress newlines. Dear XPand developers, please add «-something», for fucks sake */
 	'';

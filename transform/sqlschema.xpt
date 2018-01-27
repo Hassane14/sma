@@ -2,7 +2,7 @@
 «EXTENSION transform::helpers»
 
 «DEFINE main FOR tables::Database»
-«FILE getFilename(this) -»
+«FILE getFilename(this, 'sql') -»
 -- database `«name»`
 
 «EXPAND tTable FOREACH tables»
@@ -17,7 +17,7 @@ CREATE TABLE `«name»` (
 «ENDDEFINE»
 
 «DEFINE tColumn FOR tables::Column-»
-  «name» SOME TYPE«e()-»
+  «name» «getSQLType(this)-»
 «IF table.primary_key == this» PRIMARY KEY«ENDIF-»
 «IF this.foreign_key != null »
     REFERENCES «foreign_key.target.name»(«foreign_key.target.primary_key.name»)«e()-»

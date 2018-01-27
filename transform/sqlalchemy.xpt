@@ -1,0 +1,76 @@
+«IMPORT tables»
+«EXTENSION transform::helpers»
+
+«DEFINE main FOR tables::Database»
+«FILE getFilename(this, 'py') -»
+#!/usr/bin/env python3
+# -*- coding: utf8 -*-
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, Float, String, DateTime, Boolean, \
+                       ForeignKey
+from sqlalchemy.orm import relationship
+
+«FOREACH this.tables AS t-»
+«IF t.primary_key == null-»
+«ERROR 'The SQLAlchemy ORM does not support tables without primary keys. ' +
+       'Please define a primary key for table `' + t.name + '` and try again.'-»
+«REM»
+According to docs, this should abort generation, however it does not.
+Thus, code generation succeeds, but running the python code will fail.
+«ENDREM-»
+«ENDIF-»
+«ENDFOREACH-»
+
+# Generated from ecore models. Database name: `«name»`
+
+Base = declarative_base()
+
+«EXPAND tTable FOREACH tables-»
+
+«REM»this is not required by SQLAlchemy but may be helpful to the python code«ENDREM-»
+__tables__ = (
+«FOREACH this.tables AS t-»
+    «getPythonClassName(t)»,
+«ENDFOREACH»)«e()-»
+
+«REM»make `from gen.«name» import *` only import the defined classes, not the imported stuff«ENDREM»
+__all__ = (
+«FOREACH this.tables AS t-»
+    '«getPythonClassName(t)»',
+«ENDFOREACH-»
+    '__tables__'
+)
+«ENDFILE»
+
+«REM»Allow `import gen.databasename` in Python from the main working dir«ENDREM»
+«FILE '__init__.py'»
+«ENDFILE»
+«ENDDEFINE»
+
+
+
+
+«DEFINE tTable FOR tables::Table-»
+class «getPythonClassName(this)»(Base):
+    __tablename__ = '«this.name»'
+
+«FOREACH columns AS c-»
+    «c.name» = Column(«getSQLAlchemyType(c)-»
+«IF primary_key == c», primary_key=True«ENDIF-»
+«IF c.foreign_key != null-»
+, ForeignKey('«c.foreign_key.target.name».«c.foreign_key.target.primary_key.name»')«e()-»
+«ENDIF-»
+)
+«ENDFOREACH-»
+
+«REM»keep relationship statements together, not mixed within Column statements«ENDREM-»
+«FOREACH columns AS c-»
+«IF c.foreign_key != null-»
+    «c.foreign_key.name» = relationship('«getPythonClassName(c.foreign_key.target)»')
+«ENDIF-»
+«ENDFOREACH»
+«ENDDEFINE»
+
+
+
+«ENDDEFINE»

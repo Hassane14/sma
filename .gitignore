@@ -5,9 +5,13 @@ gen/
 metamodel/classes.gmf*
 metamodel/classes.genmodel
 metamodel/classes.trace
+metamodel/tables.gmf*
+metamodel/tables.genmodel
+metamodel/tables.trace
 
 # generated java bloat
-src/sma/hm/classes
+src/sma/hm/classes/
+src/sma/hm/tables/
 bin/
 
 

@@ -1,0 +1,53 @@
+@Ecore(invocationDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", settingDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", validationDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot")
+@namespace(uri="urn:uuid:27aa178c-696e-4d7d-a9d6-8cb6a8899d8c/metamodel/tables", prefix="tables")
+@emf.gen(basePackage="sma.hm")
+package tables;
+
+@gmf.diagram
+class Database {
+  attr String[1] name;
+  val Table[*]#database tables;
+}
+
+@Ecore(constraints="PrimaryKeyInThisTable AttributeNamesUnique")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(PrimaryKeyInThisTable="self.primary_key = null or self.primary_key.table = self", AttributeNamesUnique="
+			self.columns->isUnique(name)")
+@gmf.node(tool.name="Table", label="name", label.icon="false",
+          figure="rectangle", size="200,150", border.color="0,0,0")
+class Table {
+  attr String[1] name;
+  @gmf.compartment(layout="list")
+  val Column[*]#table columns;
+  ref Database[1]#tables database;
+  ref Column primary_key;
+}
+
+@gmf.node(tool.name="Column",
+          label="name,type", label.pattern="{0}:{1}", label.icon="false",
+          figure="rectangle", border.color="0,0,0", margin="1", size="180,20")
+class Column {
+  attr String[1] name;
+  attr Type[1] type;
+  ref Table[1]#columns table;
+  val ForeignKey#column foreign_key;
+}
+
+@Ecore(constraints="TargetHasPrimaryKey PrimaryKeyTypeMatches")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(TargetHasPrimaryKey="self.target.primary_key <> null", PrimaryKeyTypeMatches="self.target.primary_key.type = self.column.type")
+@gmf.link(tool.name="ForeignKey", label="name",
+          source="column", target="target",
+          target.decoration="arrow")
+class ForeignKey {
+  attr String name;
+  ref Table[1] target;
+  ref Column[1]#foreign_key column;
+}
+
+enum Type {
+  integer = 0;
+  float = 1;
+  string = 2;
+  datetime = 3;
+  bool = 4;
+}
+

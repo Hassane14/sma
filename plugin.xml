@@ -13,4 +13,11 @@
             class="sma.hm.classes.ClassesPackage"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated tables -->
+      <package
+            uri="urn:uuid:27aa178c-696e-4d7d-a9d6-8cb6a8899d8c/metamodel/tables"
+            class="sma.hm.tables.TablesPackage"/>
+   </extension>
+
 </plugin>

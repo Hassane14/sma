@@ -11,6 +11,7 @@
     <details key="basePackage" value="sma.hm"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Database">
+    <eAnnotations source="gmf.diagram"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tables" upperBound="-1"
         eType="#//Table" containment="true" eOpposite="#//Table/database"/>
@@ -23,14 +24,36 @@
       <details key="PrimaryKeyInThisTable" value="self.primary_key = null or self.primary_key.table = self"/>
       <details key="AttributeNamesUnique" value="&#xA;&#x9;&#x9;&#x9;self.columns->isUnique(name)"/>
     </eAnnotations>
+    <eAnnotations source="gmf.node">
+      <details key="tool.name" value="Table"/>
+      <details key="label" value="name"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="rectangle"/>
+      <details key="size" value="200,150"/>
+      <details key="border.color" value="0,0,0"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
-        eType="#//Column" containment="true" eOpposite="#//Column/table"/>
+        eType="#//Column" containment="true" eOpposite="#//Column/table">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
         eType="#//Database" eOpposite="#//Database/tables"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="primary_key" eType="#//Column"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Column">
+    <eAnnotations source="gmf.node">
+      <details key="tool.name" value="Column"/>
+      <details key="label" value="name,type"/>
+      <details key="label.pattern" value="{0}:{1}"/>
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="rectangle"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="margin" value="1"/>
+      <details key="size" value="180,20"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="table" lowerBound="1" eType="#//Table"
@@ -45,6 +68,13 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="TargetHasPrimaryKey" value="self.target.primary_key &lt;> null"/>
       <details key="PrimaryKeyTypeMatches" value="self.target.primary_key.type = self.column.type"/>
+    </eAnnotations>
+    <eAnnotations source="gmf.link">
+      <details key="tool.name" value="ForeignKey"/>
+      <details key="label" value="name"/>
+      <details key="source" value="column"/>
+      <details key="target" value="target"/>
+      <details key="target.decoration" value="arrow"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"

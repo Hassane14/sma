@@ -7,13 +7,13 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: classes,
- classes.impl,
- classes.util,
+Export-Package: sma.hm.demo,
  sma.hm.classes,
  sma.hm.classes.impl,
  sma.hm.classes.util,
- sma.hm.demo
+ sma.hm.tables,
+ sma.hm.tables.impl,
+ sma.hm.tables.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.xtend.profiler;resolution:=optional,
  org.apache.commons.logging,

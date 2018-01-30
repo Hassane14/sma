@@ -10,7 +10,7 @@
 «ENDDEFINE»
 
 «DEFINE tTable FOR tables::Table-»
-CREATE TABLE `«name»` (
+CREATE TABLE «name» (
 «EXPAND tColumn FOREACH columns SEPARATOR ",\n"»
 );
 

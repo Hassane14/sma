@@ -1,9 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf8 -*-
 import sys
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
 sys.path.insert(0, '.')
 from gen.root import *
+from gen.root import Base
 
+def setup():
+    engine = create_engine('sqlite:///:memory:')#, echo=True)
+    Base.metadata.create_all(engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    return session
 
 def do_demo1():
     print('Using Database1.xmi')
@@ -27,6 +37,15 @@ def do_demo2():
     print('foro =', m1.tema.foro.nombre)
     print('autor =', m1.autor.nombre)
     assert m1.tema.foro == f1
+
+    session = setup()
+    session.add_all([u1, f1, t1, m1])
+    session.commit()
+
+    print('u1.id =', u1.id, '==', 'm1.autor_id =', m1.autor_id)
+    print('t1.pk =', t1.pk, '==', 'm1.tema_pk =', m1.tema_pk)
+
+    print('u1 from database:', session.query(Usuario).filter(Usuario.nombre == 'yo').one().id)
 
 
 def main(args):

@@ -8,6 +8,9 @@ create OUT : ClassMM from IN : TableMM;
 helper context TableMM!Table def : getForeignKeys() : Sequence(TableMM!ForeignKey) =
 	self.columns->collect(c | c.foreign_key)->reject(fk | fk->oclIsUndefined());
 
+helper context TableMM!ForeignKey def : guessReferenceName () : String =
+	self.column.name.regexReplaceAll('_[^_]+$', '');
+
 
 rule db2clsdiag {
 	from
@@ -25,7 +28,8 @@ rule table2class {
 	to
 		cls : ClassMM!Class (
 			name <- tbl.name,
-			attributes <- tbl.columns,
+			-- delete columns with foreign keys (we create a reference instead)
+			attributes <- tbl.columns->select(c | c.foreign_key->oclIsUndefined()),
 			references <- tbl->getForeignKeys(),
 			_primary_key <- tbl.primary_key
 		)
@@ -46,7 +50,9 @@ rule fkey2ref {
 		fk : TableMM!ForeignKey
 	to
 		ref : ClassMM!Reference (
-			name <- fk.name,
+			name <- if (fk.name->oclIsUndefined() or fk.name = '')
+				then fk->guessReferenceName()
+				else fk.name endif,
 			cls <- fk.column.table,
 			target <- fk.target
 		)

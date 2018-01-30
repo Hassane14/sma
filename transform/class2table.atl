@@ -21,8 +21,8 @@ rule class2table {
 		tbl : TableMM!Table (
 			name <- cls.name,
 			columns <- cls.attributes,
-			primary_key <- if (cls._primary_key->oclIsUndefined()) then
-				thisModule.create_primary_key_column(tbl)
+			primary_key <- if (cls._primary_key->oclIsUndefined())
+				then thisModule.create_primary_key_column(tbl)
 				else cls._primary_key endif
 		)
 }
